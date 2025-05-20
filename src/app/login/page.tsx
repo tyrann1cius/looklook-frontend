@@ -1,9 +1,10 @@
 'use client';
 import styles from "../page.module.css";
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
  
 export default function LoginPage() {
+  const [loginError, setLoginError] = useState(false);
   const router = useRouter()
  
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -24,12 +25,26 @@ export default function LoginPage() {
         document.cookie = `token=${body.token}; path=/`
         router.push('/promotion');
     } else {
-      // Handle errors
-      console.log('NO');
+      setLoginError(true);
     }
   }
  
-  return (
+  if(loginError) {
+    return (
+     <div className={styles.page}>
+          <main className={styles.main}>
+            <h1>User Login</h1>
+            <form className={styles.loginForm} onSubmit={handleSubmit}>
+              <input className={styles.loginTbx} type="email" name="email" placeholder="Email" required />
+              <input className={styles.loginTbx} type="password" name="password" placeholder="Password" required />
+              <button className={styles.loginBtn} type="submit">Login</button>
+            </form>
+            <p>Wrong User/Password, Please try again</p>
+          </main>
+    </div>
+    )
+  } else {
+    return (
      <div className={styles.page}>
           <main className={styles.main}>
             <h1>User Login</h1>
@@ -41,4 +56,5 @@ export default function LoginPage() {
           </main>
     </div>
   )
+  }
 }
