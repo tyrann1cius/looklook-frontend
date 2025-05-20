@@ -51,13 +51,56 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/src/app/page.module.css [app-rsc] (css module)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$js$2d$cookie$2f$dist$2f$js$2e$cookie$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/js-cookie/dist/js.cookie.mjs [app-rsc] (ecmascript)");
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/navigation';
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$moment$2f$moment$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/moment/moment.js [app-rsc] (ecmascript)");
+;
 ;
 ;
 ;
 async function PromoPage() {
     const data = await fetch('http://localhost:3000/promotions');
     const promotions = await data.json();
+    // const router = useRouter()
+    const token = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$js$2d$cookie$2f$dist$2f$js$2e$cookie$2e$mjs__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].get('token');
+    console.log(token);
+    if (!token) {
+        // router.replace('/login')
+        return;
+    }
+    // try {
+    //   const res = await fetch('http://localhost:3000/promotions', {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   })
+    //   if (!res.ok) throw new Error('Token validation failed')
+    // } catch (error) {
+    //   console.error(error)
+    //   router.push('/login') // Redirect to login if token validation fails
+    // }
+    // useEffect(() => {
+    //   const token = Cookies.get('token')
+    //   if (!token) {
+    //     router.replace('/login')
+    //     return
+    //   }
+    //   const validateToken = async () => {
+    //     try {
+    //       const res = await fetch('http://localhost:3000/promotions', {
+    //         headers: {
+    //           Authorization: `Bearer ${token}`,
+    //         },
+    //       })
+    //       if (!res.ok) throw new Error('Token validation failed')
+    //     } catch (error) {
+    //       console.error(error)
+    //       router.push('/login') // Redirect to login if token validation fails
+    //     }
+    //   }
+    //   validateToken()
+    // }, [router])
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].page,
         children: [
@@ -69,7 +112,7 @@ async function PromoPage() {
                             children: "Available Promotions"
                         }, void 0, false, {
                             fileName: "[project]/src/app/promotion/page.tsx",
-                            lineNumber: 12,
+                            lineNumber: 65,
                             columnNumber: 11
                         }, this),
                         promotions.map((promotion)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -79,7 +122,7 @@ async function PromoPage() {
                                         children: promotion.title
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/promotion/page.tsx",
-                                        lineNumber: 15,
+                                        lineNumber: 68,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -89,12 +132,12 @@ async function PromoPage() {
                                                 children: promoType
                                             }, promoType, false, {
                                                 fileName: "[project]/src/app/promotion/page.tsx",
-                                                lineNumber: 19,
+                                                lineNumber: 72,
                                                 columnNumber: 23
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/promotion/page.tsx",
-                                        lineNumber: 16,
+                                        lineNumber: 69,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -102,7 +145,7 @@ async function PromoPage() {
                                         children: promotion.description
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/promotion/page.tsx",
-                                        lineNumber: 25,
+                                        lineNumber: 78,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -113,7 +156,7 @@ async function PromoPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/promotion/page.tsx",
-                                        lineNumber: 26,
+                                        lineNumber: 79,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -123,7 +166,7 @@ async function PromoPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/promotion/page.tsx",
-                                        lineNumber: 27,
+                                        lineNumber: 80,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -133,7 +176,7 @@ async function PromoPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/promotion/page.tsx",
-                                        lineNumber: 28,
+                                        lineNumber: 81,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -143,42 +186,42 @@ async function PromoPage() {
                                             children: "Redeem"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/promotion/page.tsx",
-                                            lineNumber: 30,
+                                            lineNumber: 83,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/promotion/page.tsx",
-                                        lineNumber: 29,
+                                        lineNumber: 82,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, promotion.promoId, true, {
                                 fileName: "[project]/src/app/promotion/page.tsx",
-                                lineNumber: 14,
+                                lineNumber: 67,
                                 columnNumber: 13
                             }, this))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/promotion/page.tsx",
-                    lineNumber: 11,
+                    lineNumber: 64,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/promotion/page.tsx",
-                lineNumber: 10,
+                lineNumber: 63,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].footer
             }, void 0, false, {
                 fileName: "[project]/src/app/promotion/page.tsx",
-                lineNumber: 36,
+                lineNumber: 89,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/promotion/page.tsx",
-        lineNumber: 9,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 }
