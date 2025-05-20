@@ -13,9 +13,7 @@ export default function PromoPage() {
   useEffect(() => {
     const token = Cookies.get('token')
 
-    console.log(token)
-
-    if (!token) {
+    if (!token || token ==='') {
       redirect('/login')
     }
 
@@ -41,7 +39,7 @@ export default function PromoPage() {
     const token = Cookies.get('token')
 
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3000/promotions/available', {
+      const response = await fetch('http://localhost:3000/promotions/redeemed', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -52,23 +50,9 @@ export default function PromoPage() {
     fetchData();
   });
 
-  function handleRedeemClick(id) {
-    const token = Cookies.get('token')
-
-    const fetchData = async () => {
-      const response = await fetch(`http://localhost:3000/users/redeem/${id}`, {
-        method: 'post',
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-    };
-    fetchData();
-  }
-
-  function handleViewRedeemedClick(e) {
+  function handleViewPromotionClick(e) {
     e.preventDefault();
-    router.push("/redeemed");
+    router.push("/promotion");
   }
 
   function handleLogoutClick(e) {
@@ -77,14 +61,14 @@ export default function PromoPage() {
     redirect("/login");
   }
 
-  if(promotion && Array.isArray(promotion)){
+  if(promotion && Array.isArray(promotion)) {
     return (
     <div className={styles.page}>
       <h2>Welcome, {userInfo}</h2>
       <a href="/login" onClick={handleLogoutClick}>Logout</a>
       <main className={styles.main}>
         <div>
-          <h1>Available Promotions</h1>
+          <h1>Redeemed Promotions</h1>
           {promotion.map(promotion => (
             <div key={promotion.promoId} className={styles.promoCard}>
               <h2>{promotion.title}</h2>
@@ -101,13 +85,10 @@ export default function PromoPage() {
                 <div className={styles.promoPartner}>By {promotion.partners}</div>
                 <div>From {moment(promotion.start).format('DD/MM/YYYY HH:mm:ss')}</div>
                 <div>To {moment(promotion.end).format('DD/MM/YYYY HH:mm:ss')}</div>
-                <div className={styles.promoRedeemContainer}>
-                  <button className={styles.promoRedeem} onClick={() => handleRedeemClick(promotion.promoId)}>Redeem</button>
-                </div>
             </div>
           ))}
           <div>
-            <a href="/redeemed" onClick={handleViewRedeemedClick}>View Redeemed Promotions</a>
+            <a href="/promotion" onClick={handleViewPromotionClick}>View Available Promotions</a>
           </div>
         </div>
       </main>
